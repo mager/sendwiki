@@ -1,9 +1,8 @@
-simplegeo --version '>= 0.5.3'
 sinatra
 bson
 bson_ext
 mongo
 i18n
 mongo_mapper
-twiliolib
-crack
+pony
+nokogiri
