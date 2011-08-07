@@ -4,6 +4,7 @@ require 'mongo_mapper'
 require 'pony'
 require 'nokogiri'
 require 'open-uri'
+require './model'
 
 TPMI_SMTP_OPTIONS = {
     :address        => "smtp.sendgrid.net",
@@ -29,6 +30,14 @@ end
 post '/' do
   email = params[:email]
   wikipedia_article = params[:article]
+
+  article_object = Article.create({
+    :article => wikipedia_article,
+    :email => email
+  })
+  article_object.save
+
+  # parse the HTML from Wikipedia
   article = Nokogiri::HTML(open(wikipedia_article))
   subject = article.css('#content h1')
 
