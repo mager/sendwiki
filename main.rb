@@ -48,6 +48,7 @@ post '/' do
   article.css('.infobox').remove
   article.css('img').remove
   article.css('script').remove
+  article.css('.editsection').remove
 
   content = article.css('#bodyContent').to_html
   
