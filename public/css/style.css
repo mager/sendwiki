@@ -1,6 +1,6 @@
 body {font:normal 100% Helvetica;text-align:center;}
 #main {width:960px;text-align:left;margin:0 auto;}
-h1 {font-size:250%;font-weight:normal;}
+h1 {font-size:375%;font-weight:normal;margin: 10px 0;}
 
 ol {list-style:none;padding:0;margin:0;}
 ol li {margin:0 0 15px;}
