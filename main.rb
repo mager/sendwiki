@@ -10,7 +10,7 @@ TPMI_SMTP_OPTIONS = {
     :port           => "587",
     :authentication => :plain,
     :user_name      => 'andrew@mager.co',
-    :password       => 'sendgridrules!',
+    :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'www.sendwiki.com',
 }
 
