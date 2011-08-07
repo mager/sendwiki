@@ -16,7 +16,7 @@ TPMI_SMTP_OPTIONS = {
 }
 
 def send_email(to, subject, html_body)
-  Pony.mail(:to => to, :from => 'email@sendwiki.com',
+  Pony.mail(:to => to, :from => 'SendWiki <email@sendwiki.com>',
     :subject => subject,
     :html_body => html_body,
     :via => :smtp, :via_options => TPMI_SMTP_OPTIONS
