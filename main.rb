@@ -47,6 +47,7 @@ post '/' do
   article.css('#jump-to-nav').remove
   article.css('.infobox').remove
   article.css('img').remove
+  article.css('script').remove
 
   content = article.css('#bodyContent').to_html
   
