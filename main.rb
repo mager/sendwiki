@@ -51,6 +51,11 @@ post '/' do
   article.css('.editsection').remove
   article.css('.navbox').remove
 
+  # Fix links
+  article.css('#bodyContent a').each do |a|
+    a['href'] = "http://en.wikipedia.org/#{a['href']}"
+  end
+
   content = article.css('#bodyContent').to_html
   
   send_email(email, subject.text, content)
