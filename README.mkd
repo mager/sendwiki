@@ -1,0 +1,11 @@
+# Sendwiki
+
+Sendwiki was created at [API Hack Day](http://apihackday.com). The problem is that my mom's school blocks Wikipedia. The solution is to email her the content from a Wikipedia page.
+
+## Technologies used
+
+ *  Heroku
+ *  Sinatra
+ *  Sendgrid
+ *  Nokogiri
+ *  MongoDB
