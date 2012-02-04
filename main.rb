@@ -11,7 +11,7 @@ TPMI_SMTP_OPTIONS = {
     :port           => "587",
     :authentication => :plain,
     :user_name      => 'andrew@mager.co',
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :password       => 'sendwiki',
     :domain         => 'www.sendwiki.com',
 }
 
@@ -40,13 +40,13 @@ post '/' do
   # parse the HTML from Wikipedia
   article = Nokogiri::HTML(open(wikipedia_article))
   subject = article.css('#content h1')
+  article = article.css('#bodyContent')
 
   # remove stuff that doesn't look great in email
   article.css('#coordinates').remove
   article.css('#toc').remove
   article.css('#jump-to-nav').remove
   article.css('.infobox').remove
-  article.css('img').remove
   article.css('script').remove
   article.css('.editsection').remove
   article.css('.navbox').remove
@@ -56,7 +56,12 @@ post '/' do
     a['href'] = "http://en.wikipedia.org#{a['href']}"
   end
 
-  content = article.css('#bodyContent').to_html
+  # Handle images
+  article.css('img').each do |img|
+    img.remove_attribute('alt')
+  end
+
+  content = article.to_html
   
   send_email(email, subject.text, content)
   redirect '/sent'
